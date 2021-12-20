@@ -1,6 +1,7 @@
 {
   "extends": [
-    "@rocket.chat/eslint-config"
+    "@rocket.chat/eslint-config",
+    "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
   "globals": {
