@@ -85,7 +85,6 @@
         ],
         "indent": "off",
         "no-dupe-class-members": "off",
-        "no-extra-parens": "off",
         "no-spaced-func": "off",
         "no-unused-vars": "off",
         "no-useless-constructor": "off",
@@ -98,27 +97,9 @@
           "syntax"
         ],
         "@typescript-eslint/ban-ts-ignore": "off",
-        "@typescript-eslint/indent": [
-          "error",
-          "tab",
-          {
-            "SwitchCase": 1
-          }
-        ],
         "@typescript-eslint/interface-name-prefix": [
           "error",
           "always"
-        ],
-        "@typescript-eslint/no-extra-parens": [
-          "error",
-          "all",
-          {
-            "conditionalAssign": true,
-            "nestedBinaryExpressions": false,
-            "returnAssign": true,
-            "ignoreJSX": "all",
-            "enforceForArrowConditionals": false
-          }
         ],
         "@typescript-eslint/no-dupe-class-members": "error",
         "@typescript-eslint/no-explicit-any": "off",
