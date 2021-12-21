@@ -55,7 +55,8 @@
       "extends": [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
-        "@rocket.chat/eslint-config"
+        "@rocket.chat/eslint-config",
+        "plugin:prettier/recommended"
       ],
       "globals": {
         "Atomics": "readonly",
