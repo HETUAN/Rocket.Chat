@@ -82,12 +82,16 @@ export interface ITeamRoom extends IRoom {
 }
 
 export const isTeamRoom = (room: Partial<IRoom>): room is ITeamRoom => !!room.teamMain;
-export const isPrivateTeamRoom = (room: Partial<IRoom>): room is ITeamRoom => isTeamRoom(room) && room.t === 'p';
-export const isPublicTeamRoom = (room: Partial<IRoom>): room is ITeamRoom => isTeamRoom(room) && room.t === 'c';
+export const isPrivateTeamRoom = (room: Partial<IRoom>): room is ITeamRoom =>
+	isTeamRoom(room) && room.t === 'p';
+export const isPublicTeamRoom = (room: Partial<IRoom>): room is ITeamRoom =>
+	isTeamRoom(room) && room.t === 'c';
 
 export const isDiscussion = (room: Partial<IRoom>): room is IRoom => !!room.prid;
-export const isPrivateDiscussion = (room: Partial<IRoom>): room is IRoom => isDiscussion(room) && room.t === 'p';
-export const isPublicDiscussion = (room: Partial<IRoom>): room is IRoom => isDiscussion(room) && room.t === 'c';
+export const isPrivateDiscussion = (room: Partial<IRoom>): room is IRoom =>
+	isDiscussion(room) && room.t === 'p';
+export const isPublicDiscussion = (room: Partial<IRoom>): room is IRoom =>
+	isDiscussion(room) && room.t === 'c';
 
 export interface IDirectMessageRoom extends Omit<IRoom, 'default' | 'featured' | 'u' | 'name'> {
 	t: 'd';
@@ -95,8 +99,10 @@ export interface IDirectMessageRoom extends Omit<IRoom, 'default' | 'featured' |
 	usernames: Array<Username>;
 }
 
-export const isDirectMessageRoom = (room: Partial<IRoom>): room is IDirectMessageRoom => room.t === 'd';
-export const isMultipleDirectMessageRoom = (room: Partial<IRoom>): room is IDirectMessageRoom => isDirectMessageRoom(room) && room.uids.length > 2;
+export const isDirectMessageRoom = (room: Partial<IRoom>): room is IDirectMessageRoom =>
+	room.t === 'd';
+export const isMultipleDirectMessageRoom = (room: Partial<IRoom>): room is IDirectMessageRoom =>
+	isDirectMessageRoom(room) && room.uids.length > 2;
 
 export enum OmnichannelSourceType {
 	WIDGET = 'widget',
@@ -107,7 +113,8 @@ export enum OmnichannelSourceType {
 	OTHER = 'other', // catch-all source type
 }
 
-export interface IOmnichannelRoom extends Omit<IRoom, 'default' | 'featured' | 'broadcast' | 'featured' | ''> {
+export interface IOmnichannelRoom
+	extends Omit<IRoom, 'default' | 'featured' | 'broadcast' | 'featured' | ''> {
 	t: 'l';
 	v: {
 		_id?: string;

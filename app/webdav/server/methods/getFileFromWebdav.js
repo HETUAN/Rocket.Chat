@@ -11,12 +11,16 @@ Meteor.methods({
 			throw new Meteor.Error('error-invalid-user', 'Invalid User', { method: 'getFileFromWebdav' });
 		}
 		if (!settings.get('Webdav_Integration_Enabled')) {
-			throw new Meteor.Error('error-not-allowed', 'WebDAV Integration Not Allowed', { method: 'getFileFromWebdav' });
+			throw new Meteor.Error('error-not-allowed', 'WebDAV Integration Not Allowed', {
+				method: 'getFileFromWebdav',
+			});
 		}
 
 		const account = await WebdavAccounts.findOneByIdAndUserId(accountId, Meteor.userId());
 		if (!account) {
-			throw new Meteor.Error('error-invalid-account', 'Invalid WebDAV Account', { method: 'getFileFromWebdav' });
+			throw new Meteor.Error('error-invalid-account', 'Invalid WebDAV Account', {
+				method: 'getFileFromWebdav',
+			});
 		}
 
 		try {

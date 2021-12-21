@@ -7,7 +7,9 @@ import { Notifications } from '../../../notifications/server';
 Meteor.methods({
 	async removeWebdavAccount(accountId) {
 		if (!Meteor.userId()) {
-			throw new Meteor.Error('error-invalid-user', 'Invalid User', { method: 'removeWebdavAccount' });
+			throw new Meteor.Error('error-invalid-user', 'Invalid User', {
+				method: 'removeWebdavAccount',
+			});
 		}
 
 		check(accountId, String);

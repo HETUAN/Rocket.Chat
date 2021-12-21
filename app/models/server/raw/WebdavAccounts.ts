@@ -10,28 +10,32 @@ import { IWebdavAccount } from '../../../../definition/IWebdavAccount';
 type T = IWebdavAccount;
 
 export class WebdavAccountsRaw extends BaseRaw<T> {
-	constructor(
-		public readonly col: Collection<T>,
-		trash?: Collection<T>,
-	) {
+	constructor(public readonly col: Collection<T>, trash?: Collection<T>) {
 		super(col, trash);
 
 		this.col.createIndex({ user_id: 1 });
 	}
 
-	findOneByIdAndUserId(_id: string, user_id: string, options: FindOneOptions<T>): Promise<T | null> {
+	findOneByIdAndUserId(
+		_id: string,
+		user_id: string,
+		options: FindOneOptions<T>,
+	): Promise<T | null> {
 		return this.findOne({ _id, user_id }, options);
 	}
 
-	findOneByUserIdServerUrlAndUsername({
-		user_id,
-		server_url,
-		username,
-	}: {
-		user_id: string;
-		server_url: string;
-		username: string;
-	}, options: FindOneOptions<T>): Promise<T | null> {
+	findOneByUserIdServerUrlAndUsername(
+		{
+			user_id,
+			server_url,
+			username,
+		}: {
+			user_id: string;
+			server_url: string;
+			username: string;
+		},
+		options: FindOneOptions<T>,
+	): Promise<T | null> {
 		return this.findOne({ user_id, server_url, username }, options);
 	}
 
